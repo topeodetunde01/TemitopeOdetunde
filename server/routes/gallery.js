@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
 
-router.get('/gallery',(req,res,next)=>{
-    res.render('gallery',{title : 'Gallery'})
+router.get('/gallery',(req,res)=>{
+    return res.render('gallery',{title : 'Gallery'})
 })
 
 module.exports = router

@@ -1,5 +1,5 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
+import api from "../api"
 import { Link } from "react-router-dom"
 import {DateTime} from 'luxon'
 import Navbar from "../components/Navbar"
@@ -11,7 +11,7 @@ const Blog = () => {
     const [blog, setBlog] = useState([])
     useEffect(()=>{
         setLoading(true)
-        axios.get('https://temitope-server.vercel.app/api/blog')
+        api.get('/api/blog')
     .then((res)=> {
         console.log(res)
         setBlog(res.data)

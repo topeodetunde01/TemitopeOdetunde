@@ -1,6 +1,6 @@
 import { Link, useLocation} from "react-router-dom"
 import { market,comments,bookCovers,merch } from "../constants"
-import axios from "axios"
+import api from "../api"
 import {DateTime} from 'luxon'
 import { useEffect, useState } from "react"
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
 
   useEffect( ()=>{
     setLoading(true)
-    axios.get('https://temitope-server.vercel.app/api/home')
+    api.get('/api/home')
     .then((res)=> {
       console.log(res.data)
       setBlog(res.data)

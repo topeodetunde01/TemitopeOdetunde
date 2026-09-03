@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import axios from "axios"
+import api from "../api"
 import {DateTime} from 'luxon'
 import Navbar from "../components/Navbar"
 
@@ -9,7 +9,7 @@ const BlogContent = () => {
     const {id} = useParams()
     const navigate = useNavigate()
     useEffect(()=>{
-        axios.get(`https://temitope-server.vercel.app/api/story/${id}`)
+        api.get(`/api/story/${id}`)
         .then((res)=>{
             console.log(res)
             setContent(res.data)
